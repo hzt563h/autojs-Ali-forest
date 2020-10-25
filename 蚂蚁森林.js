@@ -18,12 +18,14 @@ setScreenMetrics(screen_width, screen_height);
 for(var row=screen_height*0.256;row<screen_height*0.376;row+=80)
         for(var col=screen_width*0.185;col<screen_width*0.815;col+=80){
             click(col,row);
+            sleep(50);
             }
 //循环收取好友能量
 while(text("找能量").findOne()){
     log("开始收能量");
     text("找能量").findOne().click();
-    if(text("返回我的森林").findOne()){
+    sleep(1000);
+    if(className("android.view.View").text("startapp?appId=60000002&url=%2Fwww%2Fhome").exists()){
         log("已全部收取完毕结束任务");
         back();
         exit();
@@ -34,6 +36,7 @@ while(text("找能量").findOne()){
             sleep(50);
         }
     }
+    
     back();
     log("一个好友能量收取结束，开始下一个");
 }
