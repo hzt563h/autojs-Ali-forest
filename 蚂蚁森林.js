@@ -25,7 +25,7 @@ while(text("找能量").findOne()){
     log("开始收能量");
     text("找能量").findOne().click();
     sleep(1000);
-    if(className("android.view.View").text("startapp?appId=60000002&url=%2Fwww%2Fhome").exists()){
+    if(text("返回我的森林").findOne()){
         log("已全部收取完毕结束任务");
         back();
         exit();
