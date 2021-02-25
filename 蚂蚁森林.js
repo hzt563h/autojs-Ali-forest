@@ -1,3 +1,5 @@
+
+
 var screen_width = 1080;  //设置屏幕的宽度，像素值
 var screen_height = 1920; //设置屏幕的高度，像素值
 threads.start(function(){
@@ -7,7 +9,7 @@ threads.start(function(){
         //音量键关闭脚本
         if(keyCode == keys.volume_down){
             toast("您选择退出脚本！")
-            sleep(1000);
+            sleep(200);
             exit();
         }
     });
@@ -25,11 +27,11 @@ while(text("找能量").findOne()){
     log("开始收能量");
     text("找能量").findOne().click();
     sleep(1000);
-    if(text("返回我的森林").findOne()){
-        log("已全部收取完毕结束任务");
-        back();
-        exit();
-    }
+	if(className("android.widget.Button").exists()){
+		log("已全部收取完毕结束任务");
+		back();
+		exit();
+	}
     for(var row=screen_height*0.256;row<screen_height*0.376;row+=80){
         for(var col=screen_width*0.185;col<screen_width*0.815;col+=80){
             click(col,row);
